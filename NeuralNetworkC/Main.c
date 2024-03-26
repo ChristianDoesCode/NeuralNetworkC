@@ -701,7 +701,7 @@ int calcParameters(struct NeuralNetwork* pNetwork)
         {
             if (pNetwork->weightsInput_Hidden[i][j].parentNodes == (struct baseNode*)(&(pNetwork->rawHiddenNodes[0][j])))
             {
-                printf("This Ran: %f\n", pNetwork->rawHiddenNodes[0][j].parentNodes->value);
+                printf("This Ran: %f\n", ((struct baseNode*)(&(pNetwork->rawHiddenNodes[0][j])))->parentNodes->value);
                 printf("This Ran: %f\n", pNetwork->weightsInput_Hidden[i][j].parentNodes->parentNodes->value);//Error occurs Here
             }
             calcWeightGradient(&(pNetwork->weightsInput_Hidden[i][j]), pNetwork->weightsInput_Hidden[i][j].parentNodes, pNetwork->correctOutputNode, pNetwork->weightsInput_Hidden[i][j].pDerivative);
